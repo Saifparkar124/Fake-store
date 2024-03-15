@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .custom-number-input input:focus {
+            outline: none !important;
+        }
+
+        .custom-number-input button:focus {
+            outline: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NavBar -->
+    <header class="flex flex-row items-center justify-between">
+        <div class="text-2xl flex items-center text-black cursor-default" href="">
+            <span class="mr-5 m-5 rounded">
+                <img class="h-[45px]" src="/assests/logo.png" alt="">
+            </span>
+            <span>Fake Store</span>
+        </div>
+        <div class="right px-5 flex gap-2" id="login">
+
+        </div>
+    </header>
+    <!--  End of Navbar -->
+    <!-- Main Content -->
+    <main>
+        <div class="container grid grid-row-2 md:grid-cols-2 mt-16 lg:justify-between justify-center">
+            <div class="mx-16 lg:mx-36 flex justify-center rounded-md h-[500px] bg-gray-100 ">
+                <!-- Image -->
+                <img id="pimg" class="rounded object-contain lg:object-contain h-[500px] mix-blend-multiply" alt="">
+            </div>
+            <div class="right mx-7 mt-6 flex flex-col items-start justify-start  ">
+                <h1 class="title md:text-4xl text-2xl font-bold w-2/3" id="title"></h1>
+                <span class="text-xl md:text-2xl  font-normal text-gray-500 mt-3" id="price"></span>
+                <p id="desc" class="mt-3 text-lg font-light md:w-2/3 leading-7"></p>
+                <div class="custom-number-input h-10 w-16 mt-4">
+                    <label for="custom-input-number" class="w-full text-gray-700 text-sm font-semibold">Quantity
+                    </label>
+                    <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
+                        <button data-action="decrement"
+                            class="  text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-l cursor-pointer outline-none">
+                            <span class="m-auto text-2xl font-thin">−</span>
+                        </button>
+                        <input type="number" id="quantity"
+                            class="focus:outline-none text-center w-full  font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700  outline-none"
+                            name="custom-input-number" value="1" />
+                        <button data-action="increment"
+                            class="text-gray-600 hover:text-gray-700 hover:bg-gray-400 h-full w-20 rounded-r cursor-pointer">
+                            <span class="m-auto text-2xl font-thin">+</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="mt-10" id="add to cart">
+                    <span id="cart"> 
+                        <button onclick="Addcart()" class="bg-blue-400 rounded text-white p-3 hover:bg-blue-500">
+                            Add to Cart
+                        </button>
+                    </span>
+                </div>
+            </div>
+
+    </main>
+    <!-- End of Main  Content -->
+    <!-- Single Page View -->
+    <script src="/single.js"></script>
+    
+</body>
+
+</html>

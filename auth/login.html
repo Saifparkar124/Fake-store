@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <div class="container mt-16 lg:mt-32 m-auto flex items-center justify-center flex-col lg:flex-row">
+        <div class="left w-auto items-center lg:w-96">
+            <img class="h-24 lg:h-48" src="/assests/logo.png" alt="...">
+        </div>
+        <br>
+        <div class="right flex flex-col shadow bg-white p-8 rounded-lg h-96 w-96">
+            <form action="" method="post" class="flex flex-col">
+                <input id="username"
+                    class="px-4  focus:outline-none focus:border-blue-600 h-12 my-2 border border-1 border-gray-400 rounded-lg"
+                    type="text" placeholder="Email or Phone Number" required>
+                <input id="password"
+                    class="px-4 focus:outline-none focus:border-blue-600 h-12 my-2 border border-1 border-gray-400 rounded-lg"
+                    type="password" placeholder="Password" required>
+                <button id="submit" type="submit"
+                    class="bg-blue-600 my-2 py-3 rounded-md text-white text-xl font-bold hover:bg-blue-500">Log
+                    In</button>
+
+            </form>
+            <hr class="my-2">
+            <button class="bg-green-500 text-white rounded-lg my-2 py-2 text-lg font-bold hover:bg-green-600">Create New
+                account</button>
+
+        </div>
+    </div>
+    <script>
+
+
+        const button = document.getElementById('submit');
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            console.log(password)
+            if (username.value == '' && password.value == '') {
+                alert("Please enter your Username and password!");
+            } else if (username == '') {
+                alert("Please enter your Username!");
+            } else if (password == '') {
+                alert("Please enter your Password!");
+            } else {
+                fetch('https://fakestoreapi.com/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                })
+                    .then(res => res.json())
+                    .then(json => {
+                        console.log(json);
+                        fetch('https://fakestoreapi.com/users')
+                            .then(res => res.json())
+                            .then(data => {
+                                //console.log(data);
+                                data.forEach((user) => {
+                                    if(user.username == username){
+                                        console.log(user.id)
+                                        localStorage.setItem("token", json.token);
+                                        localStorage.setItem("userid", user.id)
+                                    }
+                                })
+                                window.location.href = "/index.html";
+                            }
+                            )
+                        // localStorage.setItem('token', json.token);
+                        // 
+                    }
+                    ).catch(err => console.error(err));
+
+            }
+        })
+    </script>
+</body>
+
+
+</html>

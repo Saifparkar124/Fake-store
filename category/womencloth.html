@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header class="flex flex-row items-center justify-between">
+        <div class="text-2xl flex items-center text-black cursor-default" href="">
+            <span class="mr-5 m-5 rounded">
+                <img class="h-[45px]" src="/assests/logo.png" alt="">
+            </span>
+            <span>Fake Store</span>
+        </div>
+        <div class="right px-5 flex gap-2">
+            <button class="px-4 h-[45px] text-l rounded text-black  font-medium">Log In</button>
+            <button class="px-4 h-[45px] text-l rounded text-white font-medium bg-blue-400">Sign Up</button>
+        </div>
+    </header>
+    <header>
+        <div class="h-14 flex justify-center items-center space-x-4">
+            <ul class="gap-6 flex flex-wrap ">
+                <li><a href="/index.html" id="allcategory"
+                    class="p-2 border rounded-md cursor-pointer active:bg-blue-600 active:text-white">All
+                    Categories</a></li>
+                <li><a href="/category/electronics.html" id="electronics" class="p-2 border rounded-md cursor-pointer active:bg-blue-600 active:text-white">Electronics</a></li>
+                <li><a href="/category/jewelery.html" id="jewelery" class="p-2 border rounded-md cursor-pointer active:bg-blue-600 active:text-white">Jewelery</a></li>
+                <li><a href="/category/mencloth.html" id="mencloth" class="p-2 border rounded-md cursor-pointer active:bg-blue-600 active:text-white">Men's
+                    clothing</a></li>
+                    <li><a href="/category/womencloth.html" id="womencloth" class="p-2 border rounded-md cursor-pointer bg-blue-600 text-white">Women's clothing</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class=" mx-auto max-w-2xl px-4 py-5 sm:px-6 sm:py-4 lg:max-w-7xl lg:px-4">
+            <div id="productContainer"
+                class=" grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+
+            </div>
+        </div>
+    </main>
+    <!-- Product Card View -->
+    <script src="/category/womencloth.js">
+    </script>
+    <!--  End of Products -->
+
+</body>
+
+</html>
